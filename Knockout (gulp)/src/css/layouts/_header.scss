@@ -1,0 +1,16 @@
+﻿$header-color: rgb(38, 97, 157);
+
+.header-logo {
+    width: 200px;
+    height: 85px;
+}
+
+.header-company-name {
+    margin-right: 10px;
+}
+
+.header {
+    border:2px solid $header-color;
+    border-radius:0 0 10px 10px;
+    box-shadow: 1px 1px 4px $header-color;
+}

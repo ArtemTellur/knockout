@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html class="container-fluid">
+<head>
+    <title>KO</title>
+    <meta charset="utf-8" />
+    <!-- inject:css -->
+    <!-- css files will be automaticaly insert here -->
+    <!-- endinject -->
+    <script data-main="js/main" src="js/libs/require.js"></script>
+</head>
+<body class="row">
+    <section class="col-xs-10 col-xs-offset-1">
+        <header class="row header">
+            <img src="../content/images/epam.png" class="col-xs-2 col-xs-offset-1 header-logo" />
+            <h1 class="col-xs-7"><span class="header-company-name">&lt;EPAM&gt;</span>Sportclub</h1>
+        </header>
+        <div class="row vertical-interval search-panel">
+            <div class="col-xs-4">
+                <input type="text" placeholder="Введите часть ФИО" class="input-sm input-search" data-bind="textInput: users.filter"/><!--
+                --><button type="button" class="btn-search" data-bind="click: users.filter.commit()">Искать</button>
+            </div>
+            <div class="col-xs-2">
+                <button class="btn btn-success pull-right btn-add" data-bind="click: form.showAddingForm">Добавить</button>
+            </div>
+        </div>
+        <section class="vertical-interval row">
+            <div class="col-xs-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Возраст</th>
+                            <th>Сортировка</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: users.filteredItems().sortByProperty(users.sortOrder), event: {mouseover: form.showDetails, mouseout: form.hideDetails}">
+                        <tr class="warning tr-hovered" data-bind="event:{mouseover: $parent.form.form().selectUser}, click: $parent.form.showEditingForm">
+                            <td data-bind="text: fullName"></td>
+                            <td data-bind="text: age"></td>
+                            <td data-bind="text: sortIndex"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row">
+                    <form class="form-horizontal col-xs-6">
+                        <h5 class="h5">Сортировать по:</h5>
+                        <div class="form-bordered">
+                            <div>
+                                <input type="radio" id="abcSort" class="" name="sortOrder" value="fullName" data-bind="checked: users.sortOrder"/>
+                                <label for="abcSort" class="control-label">Алфавиту</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="indexSort" class="" name="sortOrder" value="sortIndex" data-bind="checked: users.sortOrder"/>
+                                <label for="indexSort" class="control-label">Индексу сортировки</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <form class="form-horizontal col-xs-6 form-bordered" id="main-form" role="form" method="post" data-bind="with:form.form(), visible: form.form().isVisible">
+                <h3 class="h3 separator" data-bind="visible: isAdded">Добавление</h3>
+                <h3 class="h3 separator" data-bind="visible: isEdited">Редактирование</h3>
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="surname">Фамилия</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="surname" data-bind="textInput: user().surname" placeholder="Введите фамилию" name="surname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="firstname">Имя</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="firstname" data-bind="textInput: user().name" placeholder="Введите имя" name="firstname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="middlename">Отчество</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="middlename" data-bind="textInput: user().patronymic" placeholder="Введите отчество" name="middlename">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="date">День рождения</label>
+                    <div class="col-xs-9">
+                        <input type="date" class="form-control" id="date" data-bind="textInput: user().birthdate" placeholder="Введите дату" name="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox" data-bind="checked: user().isActive">Активность</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="sortindex">Индекс сортировки</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" data-bind="value: user().sortIndex" id="sortindex" name="sortindex" placeholder="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10" data-bind="visible: (isAdded() || isEdited())">
+                        <button type="submit" class="btn btn-default btn-confirm" data-bind="click: $parent.form.сonfirm">Ок</button>
+                        <button type="button" class="btn btn-danger btn-cancel" data-bind="click: $parent.form.hideForm">Отменить</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </section>
+    <!-- inject:js -->
+    <!-- js files will be automaticaly insert here -->
+    <!-- endinject -->
+</body>
+</html>

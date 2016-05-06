@@ -1,0 +1,107 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "_": true,
+    "window": true,
+    "app": true,
+    "$": true
+  },
+  "rules": {
+    "no-multiple-empty-lines": [
+      2,
+      { "max": 2 }
+    ],
+    "newline-per-chained-call": 2,
+    "newline-after-var": 2,
+    "one-var": [ 2, "always" ],
+    "strict": [ 2, "global" ],
+    "no-extra-strict": 0,
+    "quotes": [
+      2,
+      "single",
+      "avoid-escape"
+    ],
+    "no-else-return": 2,
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "no-use-before-define": [
+      2,
+      "nofunc"
+    ],
+    "padded-blocks": [ 2, "never" ],
+    "no-throw-literal": 2,
+    "no-extra-parens": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-unexpected-multiline": 2,
+    "default-case": 2,
+    "dot-location": [
+      2,
+      "property"
+    ],
+    "radix": 2,
+    "wrap-iife": [
+      2,
+      "any"
+    ],
+    "brace-style": [
+      2,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "comma-style": [
+      2,
+      "last"
+    ],
+    "eqeqeq": [
+      2,
+      "smart"
+    ],
+    "curly": 2,
+    "one-var-declaration-per-line": [ 2, "always" ],
+    "no-empty": 2,
+    "no-undef": 2,
+    "no-undef-init": 2,
+    "no-duplicate-case": 2,
+    "no-fallthrough": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-unreachable": 2,
+    "indent": [
+      2,
+      4,
+      {
+        "VariableDeclarator": {
+          "var": 1,
+          "let": 2,
+          "const": 3
+        },
+        "SwitchCase": 1
+      }
+    ],
+    "no-redeclare": [
+      2,
+      {
+        "builtinGlobals": true
+      }
+    ],
+    "no-self-compare": 2,
+    "no-shadow-restricted-names": 2,
+    "new-cap": 2,
+    "no-trailing-spaces": 2,
+    "space-before-blocks": 2,
+    "semi-spacing": 2,
+    "semi": [
+      2,
+      "always"
+    ]
+  }
+}
