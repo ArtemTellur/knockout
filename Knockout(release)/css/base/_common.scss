@@ -1,0 +1,33 @@
+﻿.vertical-interval {
+    margin-top:30px;
+}
+
+.separator{
+    border-bottom:1px solid #000;
+    padding-bottom: 15px;
+}
+
+.form-bordered {
+    border:2px solid #000;
+    padding:10px;
+}
+
+.tr-hovered:hover{
+    @extend .success;
+}
+
+.error{
+    border-color:red;
+
+    & + label{
+        color:red;
+    }
+}
+
+.current{
+    border:2px solid red;
+}
+
+tbody tr{
+    z-index:9999999;
+}
